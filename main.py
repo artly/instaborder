@@ -43,12 +43,12 @@ def process_images(dirn):
                 if not path.isdir(path.join(root, "high_res")):
                     mkdir(path.join(root, "high_res"))
                 #  saving for instagram
-                pic_adj.save(path.join(root, "insta", f.split(".")[0] + "_insta_feed.jpg"),
+                pic_adj.save(path.join(root, "insta", f.split(".")[:-1] + "_insta_feed.jpg"),
                              quality=100,
                              subsampling=0,
                              exif=pic_orig.info['exif'])
                 #  saving the highres original
-                pic_orig.save(path.join(root, "high_res", f.split(".")[0] + ".jpg"),
+                pic_orig.save(path.join(root, "high_res", f.split(".")[:-1] + ".jpg"),
                              quality=100,
                              subsampling=0,
                              exif=pic_orig.info['exif'])
