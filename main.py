@@ -1,8 +1,7 @@
 from PIL import Image, ImageOps, UnidentifiedImageError
-from os import walk, path
+from os import walk, path, mkdir
 from tkinter import filedialog
 from sys import argv
-from math import floor
 from tqdm import tqdm
 
 def pic_resize(pic_orig, desired_size):
@@ -39,6 +38,10 @@ def process_images(dirn):
                                                             box[0] + filler_pixel[0],
                                                             box[1],
                                                             box[1] + filler_pixel[1]))
+                if not path.isdir(path.join(root, "insta")):
+                    mkdir(path.join(root, "insta"))
+                if not path.isdir(path.join(root, "high_res")):
+                    mkdir(path.join(root, "high_res"))
                 #  saving for instagram
                 pic_adj.save(path.join(root, "insta", f.split(".")[0] + "_insta_feed.jpg"),
                              quality=100,
@@ -61,5 +64,3 @@ if __name__ == '__main__':
         dirn = argv[1]
     if dirn:
         process_images(dirn)
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
