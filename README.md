@@ -1,5 +1,6 @@
-pip install -r requirements.txt
-python3 main.py
+`pip install -r requirements.txt`
+
+`python3 main.py`
 
 searches the given path for image files in the top-level directory
 testes with TIFF files only, potentially can support every pillow format
